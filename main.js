@@ -1,4 +1,32 @@
-alert('Bienvenido a Adict games');
+// GALERIA DE IMAGENES //
+const contenedorProducto = document.getElementById('contenedor-productos');
+const product = contenedorProducto.querySelectorAll('.producto');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+let currentIndex = 0;
+let translateValue = 0;
+
+function slideTo(index) {
+  translateValue = -index * product[0].offsetWidth;
+  contenedorProducto.style.transform = `translateX(${translateValue}px)`;
+  currentIndex = index;
+}
+
+function nextSlide() {
+  if (currentIndex < product.length - 1) {
+    slideTo(currentIndex + 1);
+  }
+}
+
+function prevSlide() {
+  if (currentIndex > 0) {
+    slideTo(currentIndex - 1);
+  }
+}
+
+nextBtn.addEventListener('click', nextSlide);
+prevBtn.addEventListener('click', prevSlide);
+// FIN GALERIA //
 
 const productos = [
   {
@@ -144,16 +172,42 @@ function actualizarBotonesAgregar () {
   });
 }
 
-let productosEnCarrito;
+let productosEnCarrito = [];
 
-let productosEnCarritoLS = localStorage.getItem("productos-en-carrito");
+function agregarAlCarrito (e) {
+  const idBoton = e.currentTarget.id;
+  const productoAgregado = productosfind(producto => producto.id === idBoton);
 
-if (productosEnCarritoLS) {
-    productosEnCarrito = JSON.parse(productosEnCarritoLS);
-    actualizarNumerito();
-} else {
-    productosEnCarrito = [];
+  if(productosEnCarrito.some(producto => producto.id === idBoton)) {
+    const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
+    productosEnCarrito[index].cantidad++;
+  } else{
+    productoAgregado.cantidad = 1;
+    productosEnCarrito.push(productoAgregado);
+  }
+
+  actualizarNumerito();
+
+  localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+
 }
+
+function actualizarNumerito() {
+  let nuevoNumerito = productosEnCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);
+  numerito.innerText = nuevoNumerito;
+}
+
+
+
+
+// let productosEnCarritoLS = localStorage.getItem("productos-en-carrito");
+
+// if (productosEnCarritoLS) {
+//     productosEnCarrito = JSON.parse(productosEnCarritoLS);
+//     actualizarNumerito();
+// } else {
+//     productosEnCarrito = [];
+// }
 
 
 

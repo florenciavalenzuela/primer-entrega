@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style.css">
+    <title>Todos los Productos</title>
+</head>
+<body>
+    <header>
+        <nav class="navegacion">
+          <ul class="menu">
+                <li><a  id="todos"  class="boton-menu boton-categoria"  href="./productos.html">Productos</a>
+                    <ul class="submenu">
+                        <li><button id="accesorios" class="boton-menu boton-categoria" >Accesorios</button></li>
+                        <li><button id="juegos" class="boton-menu boton-categoria"  href="#">Juegos</button></li>
+                        <li><button id="consolas" class="boton-menu boton-categoria"   href="#">Consolas</button></li>
+                    </ul>
+                </li>
+                <li><a href="#">Oferta</a></li>
+                <li><a href="#">Contactanos</a></li>
+                <li><a href="./registro.html"><i class="bi bi-person-circle"></i>Entrar</a></li>
+            
+                <li><a href="carrito.html"> <i class="bi bi-cart3"></i> Carrito <span id= "numerito" class="number">0</span></a></li>
+       
+            </ul>
+        </nav>
+      
+    </header>
+
+
+    <main class="main-carrito">
+        <h2 class="titulo-principal-dos" id="titulo-principal-dos">Todos los Productos</h2>
+        <div id="contenedor-todos-productos" class="contenedor-todos-productos">
+            <!-- se rellena con JS -->
+
+        </div>
+
+    </main>
+
+
+    <script src="./carrito.js"></script>
+
+</body>
+</html>
