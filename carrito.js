@@ -1,281 +1,51 @@
-// PRODUCTOS
-const productos = [
-    {
-        id: "consola",
-        titulo: "consola",
-        imagen: "./Imagenes/consola.webp",
-        categoria: {
-            nombre: "Consolas",
-            id: "consolas"
-        },
-        precio: 3500
+const productosEnCarrito = JSON.parse(localStorage.getItem("productos-en-carrito"));
 
-    },
+const containerCarritoVacio = document.querySelector("#carrito-vacio");
+const containerCarritoProductos = document.querySelector("#carrito-productos");
+const containerCarritoAcciones = document.querySelector("#carrito-acciones");
+const containerCarritoComprado = document.querySelector("#carrito-comprado");
 
-    {
-        id: "consola",
-        titulo: "consola negra",
-        imagen: "./Imagenes/consola-negra.webp",
-        categoria: {
-            nombre: "Consolas",
-            id: "consolas"
-        },
-        precio: 4000
+if (productosEnCarrito) {
 
-    },
+    containerCarritoVacio.classList.add("disabled");
+    containerCarritoProductos.classList.remove("disabled");
+    containerCarritoAcciones.classList.remove("disabled");
+    containerCarritoComprado.classList.add("disabled");
 
-    {
-        id: "consola",
-        titulo: "consola blanca",
-        imagen: "./Imagenes/consola-blanca.webp",
-        categoria: {
-            nombre: "Consolas",
-            id: "consolas"
-        },
-        precio: 4000
+    containerCarritoProductos.innerHTML = ""; //vacial el contenedor 
 
-    },
+    //para que se muestren los productos
 
-    {
-        id: "control",
-        titulo: "control",
-        imagen: "./Imagenes/control.webp",
-        categoria: {
-            nombre: "Consolas",
-            id: "consolas"
-        },
-        precio: 5000
-
-    },
-
-    // JUEGOS
-
-    {
-        id: "juego 01",
-        titulo: "juego 01",
-        imagen: "./Imagenes/juego1.webp",
-        categoria: {
-            nombre: "Juegos",
-            id: "juegos"
-        },
-        precio: 9000
-
-    },
-
-    {
-        id: "juego 02",
-        titulo: "juego 02",
-        imagen: "./Imagenes/juego2.webp",
-        categoria: {
-            nombre: "Juegos",
-            id: "juegos"
-        },
-        precio: 9000
-
-    },
-
-    {
-        id: "juego 03",
-        titulo: "juego 03",
-        imagen: "./Imagenes/juego3.webp",
-        categoria: {
-            nombre: "Juegos",
-            id: "juegos"
-        },
-        precio: 9000
-
-    },
-
-    // ACCESORIOS
-
-    {
-        id: "auricular",
-        titulo: "auricular celeste",
-        imagen: "./Imagenes/auricular-celeste.webp",
-        categoria: {
-            nombre: "Accesorios",
-            id: "accesorios"
-        },
-        precio: 6000
-
-    },
-
-    {
-        id: "auricular",
-        titulo: "auricular negro",
-        imagen: "./Imagenes/auricular-negro.webp",
-        categoria: {
-            nombre: "Accesorios",
-            id: "accesorios"
-        },
-        precio: 6000
-
-    },
-
-    {
-        id: "mouse",
-        titulo: "mouse negro",
-        imagen: "./Imagenes/mouse-negro.webp",
-        categoria: {
-            nombre: "Accesorios",
-            id: "accesorios"
-        },
-        precio: 7000
-
-    },
-
-    {
-        id: "teclado gamer",
-        titulo: "teclado gamer",
-        imagen: "./Imagenes/teclado-gamer.webp",
-        categoria: {
-            nombre: "Accesorios",
-            id: "accesorios"
-        },
-        precio: 12000
-
-    },
-
-    {
-        id: "teclado",
-        titulo: "teclado color",
-        imagen: "./Imagenes/teclado-color.webp",
-        categoria: {
-            nombre: "Accesorios",
-            id: "accesorios"
-        },
-        precio: 12000
-
-    },
-
-    //Sillas Gamer
-
-    {
-        id: "Silla Gamer N",
-        titulo: "silla N",
-        imagen: "./Imagenes/silla-gamer-negra.webp",
-        categoria: {
-            nombre: "Sillas Gamer",
-            id: "sillas"
-        },
-        precio: 80000
-
-    },
-
-    {
-        id: "Sillas Gamer NJ",
-        titulo: "Silla NJ",
-        imagen: "./Imagenes/silla-gamer-naranja.webp",
-        categoria: {
-            nombre: "Sillas Gamer",
-            id: "sillas"
-        },
-        precio: 80000
-    },
-    
-    
-
-]
-  
-//  DOM
-const contenedorProductos = document.querySelector("#contenedor-todos-productos");
-const botonesCategorias = document.querySelectorAll(".boton-categoria");
-const tituloPrincipal = document.querySelector("#titulo-principal-dos"); 
-let botonesAgregar = document.querySelectorAll(".product-agregar");  
-const numerito = document.querySelector("#numerito");
-// FIN DOM 
-
-function cargarProductos (productosElegidos) {
-
-    contenedorProductos.innerHTML = "";  //vacia el contenedor productos
-
-    productosElegidos.forEach(product => {
-        const div = document.createElement("div"); 
-        div.classList.add("products");
-        div.innerHTML = ` 
-            <img  class="product-img" src="${product.imagen}" alt="${product.titulo}">
-            <div class="product-detalles">
-
-                <h3 class="product-titulo"> ${product.titulo} </h3>
-                <p class="product-precio">$${product.precio}</p>
-                <button class="product-agregar" id= "${product.id }">Agregar</button>
+    productosEnCarrito.forEach(product => {
+        const div = document.createElement("div");
+        div.classList.add ("carrito-producto");
+        div.innerHTML = `
+            <img class="carrito-producto-img" src="${product.imagen}" alt="${product.titulo}">
+            <div class="carrito-producto-titulo">
+                <small>Titulo</small>
+                <h3>${product.titulo}</h3>
             </div>
+            <div class="carrito-producto-cantidad">
+                <small>Cantidad</small>
+                <p>${product.cantidad}</p>
+            </div>
+            <div class="carrito-producto-precio">
+                <small>Precio</small>
+                <p>$${product.precio}</p>
+            </div>
+            <div class="carrito-producto-subtotal">
+                <small>Subtotal</small>
+                <p>$${product.precio * product.cantidad}</p>
+            </div>
+            <button class="carrito-producto-eliminar" id="${product.id}"><i class="bi bi-trash"></i></button>
+
         `;
-
-        contenedorProductos.append(div);
-
-    })
-    actualizarBotonesAgregar();
-
-}
- 
-cargarProductos(productos);
-
-botonesCategorias.forEach(boton => {
-    boton.addEventListener("click", (e) => {
-
-        botonesCategorias.forEach(boton => boton.classList.remove("active"));
-
-        e.currentTarget.classList.add("active");
-        
-        if (e.currentTarget.id != "todos") {
-            const productoCategoria = productos.filter(product => product.categoria.id === e.currentTarget.id); 
-            tituloPrincipal.innerText = productoCategoria[0].categoria.nombre;
-
-            
-            const productosBoton = productos.filter(product => product.categoria.id === e.currentTarget.id);
-            cargarProductos(productosBoton);
-        } else {
-            tituloPrincipal.innerText = "Todos los productos";
-            cargarProductos(productos);
-
-        }
-    
- 
-    })  
-});
-
-console.log (botonesAgregar);
-
-function actualizarBotonesAgregar () {
-    let botonesAgregar = document.querySelectorAll(".product-agregar");  
-
-    botonesAgregar.forEach (boton => {
-        boton.addEventListener("click", agregarAlCarrito);
+        containerCarritoProductos.appendChild(div);
     });
 
+
+
+
+}else {
+
 }
-
-const productosEnCarrito = [];
-
-function agregarAlCarrito (e) {
-    const idBoton = e.currentTarget.id;
-    const productoAgregado = productos.find(product => product.id === idBoton);
-    
-    //para aumentar la cantidad del mismo producto
-
-    if(productosEnCarrito.some(product => product.id === idBoton)) {
-      const index =  productosEnCarrito.findIndex(product => product.id === idBoton); 
-      productosEnCarrito[index].cantidad++;
-    } else {
-        productoAgregado.cantidad = 1;
-        productosEnCarrito.push(productoAgregado);
-
-    }
-
-    actualizarNumerito();
-
-    //para guardar en el LocalStorage
-
-    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
-
-    
-}
-
-//para que agregar al carrito se actualice el numerito 
-
-function actualizarNumerito () {
-    let nuevoNumerito = productosEnCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);
-    numerito.innerText = nuevoNumerito;
-}
-
