@@ -269,8 +269,8 @@ function agregarAlCarrito (e) {
     const index =  productosEnCarrito.findIndex(product => product.id === idBoton); 
     productosEnCarrito[index].cantidad++;
   } else {
-      productoAgregado.cantidad = 1;
-      productosEnCarrito.push(productoAgregado);
+    productoAgregado.cantidad = 1;
+    productosEnCarrito.push(productoAgregado);
 
   }
 
@@ -280,8 +280,23 @@ function agregarAlCarrito (e) {
 
   localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
 
+  // Mostrar mensaje emergente con Toastify
+  Toastify({
+    text: "Producto agregado al carrito",
+    backgroundColor: "green",
+    duration: 3000,
+    close: true
+  }).showToast();
+
   
 }
+
+
+
+
+
+
+
 
 //para que agregar al carrito se actualice el numerito 
 
