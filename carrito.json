@@ -1,0 +1,175 @@
+[
+    {
+        "id": "consola B&N",
+        "titulo": "consola B&N",
+        "imagen": "./Imagenes/consola.webp",
+        "categoria": {
+            "nombre": "Consolas",
+            "id": "consolas"
+        },
+        "precio": 3500
+  
+    },
+  
+    {
+        "id": "consola negra",
+        "titulo": "consola negra",
+        "imagen": "./Imagenes/consola-negra.webp",
+        "categoria": {
+            "nombre": "Consolas",
+            "id": "consolas"
+        },
+        "precio": 4000
+  
+    },
+  
+    {
+        "id": "consola blanca",
+        "titulo": "consola blanca",
+        "imagen": "./Imagenes/consola-blanca.webp",
+        "categoria": {
+            "nombre": "Consolas",
+            "id": "consolas"
+        },
+        "precio": 4000
+  
+    },
+  
+    {
+        "id": "control",
+        "titulo":"control",
+        "imagen": "./Imagenes/control.webp",
+        "categoria": {
+            "nombre": "Consolas",
+            "id": "consolas"
+        },
+        "precio": 5000
+  
+    },
+  
+
+  
+    {
+        "id": "juego 01",
+        "titulo": "juego 01",
+        "imagen": "./Imagenes/juego1.webp",
+        "categoria": {
+            "nombre": "Juegos",
+            "id": "juegos"
+        },
+        "precio": 9000
+  
+    },
+  
+    {
+        "id": "juego 02",
+        "titulo": "juego 02",
+        "imagen": "./Imagenes/juego2.webp",
+        "categoria": {
+            "nombre": "Juegos",
+            "id": "juegos"
+        },
+        "precio": 9000
+  
+    },
+  
+    {
+        "id": "juego 03",
+        "titulo": "juego 03",
+        "imagen": "./Imagenes/juego3.webp",
+        "categoria": {
+            "nombre": "Juegos",
+            "id": "juegos"
+        },
+        "precio": 9000
+  
+    },
+  
+
+    {
+        "id": "auricular C",
+        "titulo": "auricular celeste",
+        "imagen": "./Imagenes/auricular-celeste.webp",
+        "categoria": {
+            "nombre": "Accesorios",
+            "id": "accesorios"
+        },
+        "precio": 6000
+  
+    },
+  
+    {
+        "id": "auricular N",
+        "titulo": "auricular negro",
+        "imagen": "./Imagenes/auricular-negro.webp",
+        "categoria": {
+            "nombre": "Accesorios",
+            "id": "accesorios"
+        },
+        "precio": 6000
+  
+    },
+  
+    {
+        "id": "mouse",
+        "titulo": "mouse negro",
+        "imagen": "./Imagenes/mouse-negro.webp",
+        "categoria": {
+            "nombre": "Accesorios",
+            "id": "accesorios"
+        },
+        "precio": 7000
+  
+    },
+  
+    {
+        "id": "teclado gamer",
+        "titulo": "teclado gamer",
+        "imagen": "./Imagenes/teclado-gamer.webp",
+        "categoria": {
+            "nombre": "Accesorios",
+            "id": "accesorios"
+        },
+        "precio": 12000
+  
+    },
+  
+    {
+        "id": "teclado",
+        "titulo": "teclado color",
+        "imagen": "./Imagenes/teclado-color.webp",
+        "categoria": {
+            "nombre": "Accesorios",
+            "id": "accesorios"
+        },
+        "precio": 12000
+  
+    },
+  
+  
+    {
+        "id": "Silla Gamer N",
+        "titulo": "silla N",
+        "imagen": "./Imagenes/silla-gamer-negra.webp",
+        "categoria": {
+            "nombre": "Sillas Gamer",
+            "id": "sillas"
+        },
+        "precio": 80000
+  
+    },
+  
+    {
+        "id": "Sillas Gamer NJ",
+        "titulo": "Silla NJ",
+        "imagen": "./Imagenes/silla-gamer-naranja.webp",
+        "categoria": {
+            "nombre": "Sillas Gamer",
+            "id": "sillas"
+        },
+        "precio": 80000
+    }
+    
+    
+  
+]
